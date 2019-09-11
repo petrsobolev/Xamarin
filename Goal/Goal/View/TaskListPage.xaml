@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goal.View.TaskListPage"
+             Title="TaskListPage">
+
+    <Grid x:Name="grid" Margin="10, 0, 10, 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label x:Name="label" Text="Tasks of goal" FontSize="Medium" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+        <ListView ItemsSource="{Binding BindTasks}" x:Name="listViewTask" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" />
+                        </ViewCell.ContextActions>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ShortName}" FontSize="Medium" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"></Label>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!--<Button Text="Delete" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="ButtonDeleteTask" />-->
+        <Button Text="Add" Grid.Column="1" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="ButtonAddTask" />
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="Goal.CustomControl"
+             x:Class="Goal.CustomControl.LabelEditor">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Label x:Name="labelShortName" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
+            <Editor Text="{Binding Name}" x:Name="editorShortName" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start"></Editor>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

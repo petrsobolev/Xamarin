@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goal.View.TaskPage"
+             Title="TaskPage">
+    <Grid x:Name="grid" Margin="10, 0, 10, 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Goal -> Task" FontSize="Large" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+        <Label Text="Short Name" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Editor Text="{Binding ShortName, Mode=TwoWay}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />
+
+        <Label Text="Description" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Editor Text="{Binding Description, Mode=TwoWay}"  Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" />
+
+        <Label Text="Start at" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <DatePicker Date="{Binding StartAt, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" />
+
+        <Label Text="Reach on" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <DatePicker Date="{Binding ReachOn, Mode=TwoWay}" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" />
+
+        <Label Text="Percentage of completion" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Slider Minimum="0" Maximum="100" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" />
+
+        <Label Text="Done" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Switch IsToggled="{Binding Done, Mode=TwoWay}" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalOptions="EndAndExpand" />
+
+        <Button Command="{Binding OnUpdateTaskCommand}" Text="Update" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" />
+        <Button Command="{Binding OnDeleteTaskCommand}" Text="Delete" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Goal.View.AddGoalPage"
+             xmlns:customControl1="clr-namespace:Goal.CustomControl;assembly=Goal"
+             Title="AddGoalPage">
+    <Grid x:Name="grid" Margin="10, 0, 10, 0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="Goal" FontSize="Large" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+
+        <!--<Label Text="Short Name" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />-->
+        <customControl1:LabelEditor Name="{Binding ShortName, Mode=TwoWay}" LabelText="Short Name"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4"></customControl1:LabelEditor>
+        <!--<Editor Text="{Binding ShortName, Mode=TwoWay}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" />-->
+
+        <Label Text="Description" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Editor Text="{Binding Description, Mode=TwoWay}"  Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" />
+
+        <Label Text="Reach on" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <DatePicker Date="{Binding ReachOn, Mode=TwoWay}" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" />
+
+        <Label Text="Enable" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" VerticalTextAlignment="Center" />
+        <Switch IsToggled="{Binding Enable, Mode=TwoWay}" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" />
+
+        <Button Command="{Binding OnSaveCommand}" Text="Save" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="4" />
+    </Grid>
+</ContentPage>
